@@ -17,7 +17,7 @@ class Users extends Model {
           },
         },
         sequelize,
-        tableName: "users",
+        tableName: "adminer",
       }
     );
   }
