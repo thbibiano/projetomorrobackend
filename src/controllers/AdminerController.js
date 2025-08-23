@@ -17,6 +17,7 @@ module.exports = {
       newuser.password_hash = undefined;
       return res.send({ newuser, token });
     } catch (err) {
+      console.log(err);
       return res.status(500).send({ error: "internal error" });
     }
   },
@@ -47,6 +48,7 @@ module.exports = {
       user.password_hash = undefined;
       return res.send({ user, token });
     } catch (e) {
+      console.log(e);
       return res.status(500).send(e);
     }
   },
