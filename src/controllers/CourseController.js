@@ -41,11 +41,32 @@ module.exports = {
     }
   },
 
-  async search(req, res) {
+  async find(req, res) {
     try {
-      console.log(req);
-      const course = await Course.findAll();
-      return res.send(course);
+      const courseId = req.params.id;
+      const course = await Course.findByPk(courseId);
+      const students = await course.getStudents();
+
+      return res.send({ students, course });
+    } catch (e) {
+      return res.status(500).send(e);
+    }
+  },
+
+  async update(req, res) {
+    try {
+      const courseId = req.params.id;
+      const course = await Course.findByPk(courseId);
+      const courseData = req.body.course;
+      if (!course) {
+        return res.status(404).send({ error: "Aluno não encontrado" });
+      }
+
+      await course.update(courseData);
+
+      return res.send({
+        course,
+      });
     } catch (e) {
       return res.status(500).send(e);
     }

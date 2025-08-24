@@ -12,10 +12,11 @@ module.exports = {
       },
       name: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       description: {
         type: Sequelize.STRING,
-        allowNull: true,
+        allowNull: false,
         unique: true,
       },
       total_hours: {
@@ -40,6 +41,10 @@ module.exports = {
       },
       end_hour: {
         type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      is_active: {
+        type: Sequelize.BOOLEAN,
         allowNull: false,
       },
       created_at: Sequelize.DATE,

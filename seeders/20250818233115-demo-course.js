@@ -10,6 +10,7 @@ const courses = [
     init_hour: "07",
     end_hour: "12",
     total_hours: 250,
+    is_active: true,
   },
   {
     name: "Introdução à Inteligência Artificial",
@@ -21,6 +22,7 @@ const courses = [
     init_hour: "08",
     end_hour: "11",
     total_hours: 180,
+    is_active: true,
   },
   {
     name: "Desenvolvimento Web Full Stack",
@@ -32,6 +34,7 @@ const courses = [
     init_hour: "13",
     end_hour: "17",
     total_hours: 300,
+    is_active: true,
   },
   {
     name: "Banco de Dados Relacional",
@@ -43,6 +46,7 @@ const courses = [
     init_hour: "09",
     end_hour: "12",
     total_hours: 200,
+    is_active: true,
   },
   {
     name: "Segurança da Informação",
@@ -54,6 +58,7 @@ const courses = [
     init_hour: "18",
     end_hour: "21",
     total_hours: 180,
+    is_active: true,
   },
   {
     name: "Design de Interfaces Digitais",
@@ -65,6 +70,7 @@ const courses = [
     init_hour: "14",
     end_hour: "17",
     total_hours: 150,
+    is_active: true,
   },
   {
     name: "Arquitetura de Computadores",
@@ -76,6 +82,7 @@ const courses = [
     init_hour: "10",
     end_hour: "13",
     total_hours: 210,
+    is_active: true,
   },
   {
     name: "Algoritmos e Estruturas de Dados",
@@ -86,6 +93,7 @@ const courses = [
     end_date: "2025-11-15",
     init_hour: "07",
     end_hour: "10",
+    is_active: true,
     total_hours: 180,
   },
   {
@@ -98,6 +106,7 @@ const courses = [
     init_hour: "15",
     end_hour: "18",
     total_hours: 200,
+    is_active: true,
   },
   {
     name: "Gestão de Projetos de TI",
@@ -109,6 +118,7 @@ const courses = [
     init_hour: "08",
     end_hour: "11",
     total_hours: 160,
+    is_active: true,
   },
   {
     name: "Computação em Nuvem",
@@ -120,6 +130,7 @@ const courses = [
     init_hour: "16",
     end_hour: "19",
     total_hours: 190,
+    is_active: true,
   },
   {
     name: "Introdução à Robótica",
@@ -131,6 +142,7 @@ const courses = [
     init_hour: "13",
     end_hour: "16",
     total_hours: 170,
+    is_active: true,
   },
   {
     name: "Desenvolvimento de Aplicativos Móveis",
@@ -142,6 +154,7 @@ const courses = [
     init_hour: "09",
     end_hour: "12",
     total_hours: 200,
+    is_active: true,
   },
   {
     name: "Ética e Privacidade Digital",
@@ -153,6 +166,7 @@ const courses = [
     init_hour: "17",
     end_hour: "20",
     total_hours: 140,
+    is_active: true,
   },
   {
     name: "Introdução à Ciência de Dados",
@@ -164,6 +178,7 @@ const courses = [
     init_hour: "10",
     end_hour: "13",
     total_hours: 220,
+    is_active: true,
   },
 ];
 

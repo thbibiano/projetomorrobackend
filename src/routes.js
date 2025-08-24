@@ -13,12 +13,14 @@ routes.post("/student", StudentController.store);
 routes.get("/student", StudentController.index);
 routes.post("/student/register/:id", StudentController.register);
 routes.get("/student/:id", StudentController.find);
+routes.post("/student/update/:id", StudentController.update);
 
 //ROUTES FOR COURSE
 const CourseController = require("./controllers/CourseController");
 routes.post("/course", CourseController.store);
 routes.get("/course", CourseController.index);
-routes.get("/course/search", CourseController.search);
+routes.get("/course/:id", CourseController.find);
+routes.post("/course/update/:id", CourseController.update);
 
 //ROUTES FOR REGISTRATION
 const RegistrationController = require("./controllers/RegistrationController");

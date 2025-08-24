@@ -2,7 +2,7 @@
 
 const students = [
   {
-    id: 27,
+    id: 1,
     name: "Ana Beatriz Souza",
     cpf: "123.456.789-09",
     phone: "(21) 98888-1234",

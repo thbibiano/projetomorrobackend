@@ -12,6 +12,7 @@ class Course extends Model {
         end_date: DataTypes.DATEONLY,
         init_hour: DataTypes.INTEGER,
         end_hour: DataTypes.INTEGER,
+        is_active: DataTypes.BOOLEAN,
       },
       {
         sequelize,
