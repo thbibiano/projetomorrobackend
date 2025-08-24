@@ -87,7 +87,6 @@ module.exports = {
 
   async addStudents(req, res) {
     try {
-      console.log("ui");
       const courseID = req.params.id;
       const studentIDs = req.body.students;
 

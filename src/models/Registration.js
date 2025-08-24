@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 
-class Course extends Model {
+class Registration extends Model {
   static init(sequelize) {
     super.init(
       {
@@ -13,7 +13,7 @@ class Course extends Model {
         indexes: [
           {
             unique: true,
-            fields: ["aluno_id", "curso_id"],
+            fields: ["id_student", "id_course"],
           },
         ],
       }
@@ -23,4 +23,4 @@ class Course extends Model {
   static associate(models) {}
 }
 
-module.exports = Course;
+module.exports = Registration;

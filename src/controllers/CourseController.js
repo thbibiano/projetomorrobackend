@@ -40,4 +40,13 @@ module.exports = {
       return res.status(500).send(e);
     }
   },
+  async search(req, res) {
+    try {
+      console.log(req);
+      const course = await Course.findAll();
+      return res.send(course);
+    } catch (e) {
+      return res.status(500).send(e);
+    }
+  },
 };
