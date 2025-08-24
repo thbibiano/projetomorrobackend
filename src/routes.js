@@ -12,6 +12,7 @@ const StudentController = require("./controllers/StudentController");
 routes.post("/student", StudentController.store);
 routes.get("/student", StudentController.index);
 routes.post("/student/register/:id", StudentController.register);
+routes.get("/student/:id", StudentController.find);
 
 //ROUTES FOR COURSE
 const CourseController = require("./controllers/CourseController");

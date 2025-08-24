@@ -68,4 +68,16 @@ module.exports = {
       return res.status(500).send(e);
     }
   },
+
+  async find(req, res) {
+    try {
+      const studentId = req.params.id;
+      const student = await Student.findByPk(studentId);
+      const courses = await student.getCourses();
+
+      return res.send({ student, courses });
+    } catch (e) {
+      return res.status(500).send(e);
+    }
+  },
 };

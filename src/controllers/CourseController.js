@@ -40,6 +40,7 @@ module.exports = {
       return res.status(500).send(e);
     }
   },
+
   async search(req, res) {
     try {
       console.log(req);
