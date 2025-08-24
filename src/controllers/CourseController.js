@@ -23,6 +23,7 @@ module.exports = {
         init_hour,
         end_hour,
         total_hours,
+        is_active: true,
       });
 
       await course.save();
