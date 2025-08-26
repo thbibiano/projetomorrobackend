@@ -76,7 +76,8 @@ module.exports = {
   async delete(req, res) {
     try {
       const courseId = req.params.id;
-      const course = await Course.destroy(courseId);
+      const course = await Course.findByPk(courseId);
+      await course.destroy();
 
       return res.send({ course });
     } catch (e) {
