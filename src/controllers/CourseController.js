@@ -72,4 +72,15 @@ module.exports = {
       return res.status(500).send(e);
     }
   },
+
+  async delete(req, res) {
+    try {
+      const courseId = req.params.id;
+      const course = await Course.destroy(courseId);
+
+      return res.send({ course });
+    } catch (e) {
+      return res.status(500).send(e);
+    }
+  },
 };

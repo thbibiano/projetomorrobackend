@@ -20,7 +20,7 @@ module.exports = {
             key: "id",
             deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE,
             onUpdate: "CASCADE",
-            onDelete: "CASCADE",
+            onDelete: "RESTRICT",
           },
         },
         id_student: {
@@ -31,7 +31,7 @@ module.exports = {
             key: "id",
             deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE,
             onUpdate: "CASCADE",
-            onDelete: "CASCADE",
+            onDelete: "RESTRICT",
           },
         },
         created_at: Sequelize.DATE,

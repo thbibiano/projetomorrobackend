@@ -21,6 +21,7 @@ routes.post("/course", CourseController.store);
 routes.get("/course", CourseController.index);
 routes.get("/course/:id", CourseController.find);
 routes.post("/course/update/:id", CourseController.update);
+routes.delete("/course/:id", CourseController.delete);
 
 //ROUTES FOR REGISTRATION
 const RegistrationController = require("./controllers/RegistrationController");
