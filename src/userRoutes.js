@@ -7,5 +7,6 @@ const AdminerController = require("./controllers/AdminerController");
 routes.post("/register", AdminerController.register);
 routes.post("/login", AdminerController.login);
 routes.get("/validate", authRouter, AdminerController.validate);
+routes.post("/forgotmypassword", AdminerController.forgotmypassword);
 
 module.exports = routes;

@@ -32,4 +32,5 @@ routes.post(
   "/registration/addStudents/:id",
   RegistrationController.addStudents
 );
+
 module.exports = routes;

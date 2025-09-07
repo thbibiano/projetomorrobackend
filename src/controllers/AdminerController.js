@@ -63,4 +63,25 @@ module.exports = {
     const email = req.userEmail;
     res.status(200).send({ id, nickname, email });
   },
+
+  async forgotmypassword(req, res) {
+    const { nickname = "Admin", password: password_hash, email } = req.body;
+
+    try {
+      const user = await Adminer.findOne({ where: { email: email } });
+
+      if (user) {
+        const newUser = user.update({ password_hash, email });
+        return res.status(200).send(newUser);
+      }
+
+      const newuser = await Adminer.create({ nickname, password_hash, email });
+      newuser.password_hash = undefined;
+
+      return res.send({ newuser });
+    } catch (err) {
+      console.log(err);
+      return res.status(500).send({ error: "internal error" });
+    }
+  },
 };
