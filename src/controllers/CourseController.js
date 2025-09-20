@@ -1,4 +1,5 @@
 const Course = require("../models/Course");
+const Registration = require("../models/Registration");
 
 module.exports = {
   async store(req, res) {
@@ -76,11 +77,23 @@ module.exports = {
   async delete(req, res) {
     try {
       const courseId = req.params.id;
+
+      // Busca todas as matrículas relacionadas ao estudante
+      const registrations = await Registration.findAll({
+        where: { id_course: courseId },
+      });
+
+      // Deleta todas as matrículas
+      for (const registration of registrations) {
+        await registration.destroy();
+      }
+
       const course = await Course.findByPk(courseId);
-      await course.destroy();
+      await course.destroy({});
 
       return res.send({ course });
     } catch (e) {
+      console.log(e);
       return res.status(500).send(e);
     }
   },

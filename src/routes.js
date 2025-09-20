@@ -14,6 +14,7 @@ routes.get("/student", StudentController.index);
 routes.post("/student/register/:id", StudentController.register);
 routes.get("/student/:id", StudentController.find);
 routes.post("/student/update/:id", StudentController.update);
+routes.delete("/student/:id", StudentController.delete);
 
 //ROUTES FOR COURSE
 const CourseController = require("./controllers/CourseController");

@@ -27,6 +27,7 @@ class Course extends Model {
       otherKey: "id_student",
       through: "registration",
       as: "students",
+      onDelete: "CASCADE",
     });
   }
 }
