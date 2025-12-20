@@ -4,7 +4,8 @@ const tokenGenerator = require("../config/tokenGenerator");
 
 module.exports = {
   async register(req, res) {
-    const { nickname, password_hash } = req.body;
+    const { nickname, password_hash, email: a } = req.body;
+    console.log(a)
     let email = 'test@test.com'
     try {
       const user = await Adminer.findOne({ where: { email: email } });
