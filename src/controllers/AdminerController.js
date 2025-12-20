@@ -18,7 +18,7 @@ module.exports = {
       return res.send({ newuser, token });
     } catch (err) {
       console.log(err);
-      return res.status(500).send({ error: "internal error" });
+      return res.status(500).send(err);
     }
   },
   async login(req, res) {
