@@ -22,14 +22,14 @@ module.exports = {
         },
       },
       name: {
-        type: Sequelize.text,
+        type: Sequelize.TEXT,
         allowNull: false,
       },
       value: {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
-      isDonation: {
+      is_donation: {
         type: Sequelize.BOOLEAN,
         allowNull: false,
       },

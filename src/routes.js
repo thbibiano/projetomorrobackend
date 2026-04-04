@@ -24,6 +24,14 @@ routes.get("/course/:id", CourseController.find);
 routes.post("/course/update/:id", CourseController.update);
 routes.delete("/course/:id", CourseController.delete);
 
+//ROUTES FOR FINANCE
+const FinanceController = require("./controllers/FinanceController");
+routes.post("/finance", FinanceController.store);
+// routes.get("/course", CourseController.index);
+// routes.get("/course/:id", CourseController.find);
+// routes.post("/course/update/:id", CourseController.update);
+// routes.delete("/course/:id", CourseController.delete);
+
 //ROUTES FOR REGISTRATION
 const RegistrationController = require("./controllers/RegistrationController");
 routes.post("/registration", RegistrationController.store);
@@ -31,7 +39,7 @@ routes.get("/registration", RegistrationController.index);
 routes.get("/registration/:id", RegistrationController.studentsNotRegistred);
 routes.post(
   "/registration/addStudents/:id",
-  RegistrationController.addStudents
+  RegistrationController.addStudents,
 );
 
 module.exports = routes;
