@@ -29,10 +29,25 @@ module.exports = {
     }
   },
 
-  async index(req, res) {
+  async indexDate(req, res) {
     try {
-      const course = await Course.findAll();
-      return res.send(course);
+      const dates = await FinanceDate.findAll();
+      return res.send(dates);
+    } catch (e) {
+      console.log(e);
+      return res.send([]);
+    }
+  },
+
+  async index(req, res) {
+    const financeId = req.params.id;
+    try {
+      const finance = await FinanceReport.findAll({
+        where: {
+          id_financedate: financeId,
+        },
+      });
+      return res.send(finance);
     } catch (e) {
       return res.status(500).send(e);
     }

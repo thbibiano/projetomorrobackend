@@ -27,7 +27,8 @@ routes.delete("/course/:id", CourseController.delete);
 //ROUTES FOR FINANCE
 const FinanceController = require("./controllers/FinanceController");
 routes.post("/finance", FinanceController.store);
-// routes.get("/course", CourseController.index);
+routes.get("/finance/dates", FinanceController.indexDate);
+routes.get("/finance/:id", FinanceController.index);
 // routes.get("/course/:id", CourseController.find);
 // routes.post("/course/update/:id", CourseController.update);
 // routes.delete("/course/:id", CourseController.delete);
