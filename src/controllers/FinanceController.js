@@ -29,6 +29,25 @@ module.exports = {
     }
   },
 
+  async deleteFinance(req, res) {
+    try {
+      const financeId = req.params.id;
+      const finance = await FinanceReport.findByPk(financeId);
+
+      if (!finance) {
+        return res
+          .status(404)
+          .send({ error: "Dado financeiro não encontrada" });
+      }
+
+      finance.destroy();
+      return res.status(200).send({ deleted: true });
+    } catch (e) {
+      console.log(e);
+      return res.status(500).send(e);
+    }
+  },
+
   async indexDate(req, res) {
     try {
       const dates = await FinanceDate.findAll();
