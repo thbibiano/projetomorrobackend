@@ -26,7 +26,7 @@ module.exports = (req, res, next) => {
     }
     req.userId = decoded.id;
     req.userEmail = decoded.email;
-    req.userName = decoded.name;
+    req.nickname = decoded.name;
   });
   return next();
 };

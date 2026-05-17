@@ -58,19 +58,19 @@ module.exports = {
       return res.status(401).send({ error: "User not authorized" });
     }
 
-    const nickname = req.userName;
+    const nickname = req.nickname;
     const email = req.userEmail;
     res.status(200).send({ id, nickname, email });
   },
 
   async forgotmypassword(req, res) {
-    const { nickname = "Admin", password: password_hash, email } = req.body;
+    const { nickname, password: password_hash, email } = req.body;
 
     try {
       const user = await Adminer.findOne({ where: { email: email } });
 
       if (user) {
-        const newUser = user.update({ password_hash, email });
+        const newUser = user.update({ password_hash, email, nickname });
         return res.status(200).send(newUser);
       }
 
