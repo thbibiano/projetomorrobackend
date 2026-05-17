@@ -10,14 +10,14 @@ class Course extends Model {
         teacher: DataTypes.STRING,
         init_date: DataTypes.DATEONLY,
         end_date: DataTypes.DATEONLY,
-        init_hour: DataTypes.INTEGER,
-        end_hour: DataTypes.INTEGER,
+        init_hour: DataTypes.STRING,
+        end_hour: DataTypes.STRING,
         is_active: DataTypes.BOOLEAN,
       },
       {
         sequelize,
         tableName: "course",
-      }
+      },
     );
   }
 

@@ -36,11 +36,11 @@ module.exports = {
         allowNull: false,
       },
       init_hour: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
       },
       end_hour: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
       },
       is_active: {
