@@ -57,12 +57,9 @@ module.exports = {
     if (!user) {
       return res.status(401).send({ error: "User not authorized" });
     }
-
-    const nickname = req.nickname;
     const email = req.userEmail;
-    res.status(200).send({ id, nickname, email });
+    res.status(200).send({ id, email });
   },
-
   async forgotmypassword(req, res) {
     const { password: password_hash, email } = req.body;
 
