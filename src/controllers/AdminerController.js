@@ -4,13 +4,13 @@ const tokenGenerator = require("../config/tokenGenerator");
 
 module.exports = {
   async register(req, res) {
-    const { nickname, password_hash, email } = req.body;
+    const { password_hash, email } = req.body;
     try {
       const user = await Adminer.findOne({ where: { email: email } });
       if (user) {
         return res.status(400).send({ error: "user already exist" });
       }
-      const newuser = await Adminer.create({ nickname, password_hash, email });
+      const newuser = await Adminer.create({ password_hash, email });
       const token = await tokenGenerator(newuser);
 
       newuser.password_hash = undefined;
@@ -64,20 +64,19 @@ module.exports = {
   },
 
   async forgotmypassword(req, res) {
-    const { nickname, password: password_hash, email } = req.body;
+    const { password: password_hash, email } = req.body;
 
     try {
       const user = await Adminer.findOne({ where: { email: email } });
 
       if (user) {
-        const newUser = user.update({ password_hash, email, nickname });
+        const newUser = user.update({ password_hash, email });
         return res.status(200).send(newUser);
+        newuser.password_hash = undefined;
+        return res.send({ newuser });
+      } else {
+        return res.status(404).send({ error: "usuário não encontrado" });
       }
-
-      const newuser = await Adminer.create({ nickname, password_hash, email });
-      newuser.password_hash = undefined;
-
-      return res.send({ newuser });
     } catch (err) {
       console.log(err);
       return res.status(500).send({ error: "internal error" });

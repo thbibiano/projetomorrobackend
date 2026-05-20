@@ -9,10 +9,6 @@ module.exports = {
         autoIncrement: true,
         allowNull: true,
       },
-      nickname: {
-        type: Sequelize.STRING(64),
-        allowNull: false,
-      },
       email: {
         type: Sequelize.STRING(64),
         allowNull: false,

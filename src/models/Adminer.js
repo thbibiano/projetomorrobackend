@@ -5,7 +5,6 @@ class Users extends Model {
   static init(sequelize) {
     super.init(
       {
-        nickname: DataTypes.STRING,
         email: DataTypes.STRING,
         password_hash: DataTypes.STRING,
       },
@@ -18,7 +17,7 @@ class Users extends Model {
         },
         sequelize,
         tableName: "adminer",
-      }
+      },
     );
   }
   static associate(models) {}
