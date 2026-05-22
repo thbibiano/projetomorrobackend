@@ -1,5 +1,6 @@
 const Course = require("../models/Course");
 const Registration = require("../models/Registration");
+const ErrorValidation = require("../middlewares/errorvalidation");
 
 module.exports = {
   async store(req, res) {
@@ -30,7 +31,7 @@ module.exports = {
       await course.save();
       return res.send({ ...course });
     } catch (e) {
-      return res.status(500).send(e);
+      return ErrorValidation(e, res);
     }
   },
 
@@ -39,7 +40,7 @@ module.exports = {
       const course = await Course.findAll();
       return res.send(course);
     } catch (e) {
-      return res.status(500).send(e);
+      return ErrorValidation(e, res);
     }
   },
 
@@ -51,7 +52,7 @@ module.exports = {
 
       return res.send({ students, course });
     } catch (e) {
-      return res.status(500).send(e);
+      return ErrorValidation(e, res);
     }
   },
 
@@ -70,7 +71,7 @@ module.exports = {
         course,
       });
     } catch (e) {
-      return res.status(500).send(e);
+      return ErrorValidation(e, res);
     }
   },
 
@@ -93,8 +94,7 @@ module.exports = {
 
       return res.send({ course });
     } catch (e) {
-      console.log(e);
-      return res.status(500).send(e);
+      return ErrorValidation(e, res);
     }
   },
 };

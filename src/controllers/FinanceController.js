@@ -1,5 +1,6 @@
 const FinanceDate = require("../models/FinanceDate");
 const FinanceReport = require("../models/FinanceReport");
+const ErrorValidation = require("../middlewares/errorvalidation");
 
 module.exports = {
   async store(req, res) {
@@ -24,8 +25,7 @@ module.exports = {
 
       return res.send({ date, report });
     } catch (e) {
-      console.log(e);
-      return res.status(500).send(e);
+      return ErrorValidation(e, res);
     }
   },
 
@@ -43,8 +43,7 @@ module.exports = {
       finance.destroy();
       return res.status(200).send({ deleted: true });
     } catch (e) {
-      console.log(e);
-      return res.status(500).send(e);
+      return ErrorValidation(e, res);
     }
   },
 
@@ -53,8 +52,7 @@ module.exports = {
       const dates = await FinanceDate.findAll();
       return res.send(dates);
     } catch (e) {
-      console.log(e);
-      return res.send([]);
+      return ErrorValidation(e, res);
     }
   },
 
@@ -68,9 +66,10 @@ module.exports = {
       });
       return res.send(finance);
     } catch (e) {
-      return res.status(500).send(e);
+      return ErrorValidation(e, res);
     }
   },
+
   async saveDates(req, res) {
     try {
       const { year, month } = req.body;
@@ -82,8 +81,7 @@ module.exports = {
       });
       return res.send(date);
     } catch (e) {
-      console.log(e);
-      return res.status(500).send(e);
+      return ErrorValidation(e, res);
     }
   },
 };

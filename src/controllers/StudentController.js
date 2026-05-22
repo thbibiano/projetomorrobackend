@@ -1,6 +1,7 @@
 const Course = require("../models/Course");
 const Registration = require("../models/Registration");
 const Student = require("../models/Student");
+const ErrorValidation = require("../middlewares/errorvalidation");
 
 module.exports = {
   async store(req, res) {
@@ -33,9 +34,8 @@ module.exports = {
 
       await student.save();
       return res.send({ ...student });
-    } catch (e) {
-      console.log(e);
-      return res.status(500).send(e);
+    } catch (error) {
+      return ErrorValidation(error, res);
     }
   },
 
@@ -43,8 +43,8 @@ module.exports = {
     try {
       const students = await Student.findAll();
       return res.send(students);
-    } catch (e) {
-      return res.status(500).send(e);
+    } catch (error) {
+      return ErrorValidation(error, res);
     }
   },
 
@@ -64,9 +64,8 @@ module.exports = {
 
       const r = await student.addCourses(courses);
       return res.send(r);
-    } catch (e) {
-      //console.log(e);
-      return res.status(500).send(e);
+    } catch (error) {
+      return ErrorValidation(error, res);
     }
   },
 
@@ -77,8 +76,8 @@ module.exports = {
       const courses = await student.getCourses();
 
       return res.send({ student, courses });
-    } catch (e) {
-      return res.status(500).send(e);
+    } catch (error) {
+      return ErrorValidation(error, res);
     }
   },
 
@@ -114,8 +113,8 @@ module.exports = {
         courses: courses,
         deletedCourses,
       });
-    } catch (e) {
-      return res.status(500).send(e);
+    } catch (error) {
+      return ErrorValidation(error, res);
     }
   },
 
@@ -137,8 +136,8 @@ module.exports = {
       await student.destroy({});
 
       return res.send({ student });
-    } catch (e) {
-      return res.status(500).send(e);
+    } catch (error) {
+      return ErrorValidation(error, res);
     }
   },
 };

@@ -2,6 +2,7 @@ const Registration = require("../models/Registration");
 const Student = require("../models/Student");
 const Course = require("../models/Course");
 const { Op } = require("sequelize");
+const ErrorValidation = require("../middlewares/errorvalidation");
 
 module.exports = {
   async store(req, res) {
@@ -33,12 +34,10 @@ module.exports = {
           .send({ error: "Aluno já está matriculado nesse curso" });
       }
 
-      console.log(course);
       const data = await course.addStudent(student);
       return res.send({ ...data });
     } catch (e) {
-      console.log(e);
-      return res.status(500).send(e);
+      return ErrorValidation(e, res);
     }
   },
 
@@ -47,7 +46,7 @@ module.exports = {
       const registrations = await Registration.findAll();
       return res.send(registrations);
     } catch (e) {
-      return res.status(500).send(e);
+      return ErrorValidation(e, res);
     }
   },
 
@@ -80,8 +79,7 @@ module.exports = {
 
       return res.send(unregisteredStudents);
     } catch (e) {
-      console.log(e);
-      return res.status(500).send(e);
+      return ErrorValidation(e, res);
     }
   },
 
@@ -103,8 +101,7 @@ module.exports = {
 
       return res.send(r);
     } catch (e) {
-      console.log(e);
-      return res.status(500).send(e);
+      return ErrorValidation(e, res);
     }
   },
 };
