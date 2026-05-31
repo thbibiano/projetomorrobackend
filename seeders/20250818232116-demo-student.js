@@ -7,7 +7,7 @@ const students = [
     cpf: "123.456.789-09",
     phone: "(21) 98888-1234",
     celphone: "(21) 98888-1234",
-    family_income: 320000,
+    family_income: 3200,
     state: "RJ",
     city: "Petrópolis",
     neighborhood: "Centro",
